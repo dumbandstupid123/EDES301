@@ -1,6 +1,7 @@
-This is a cumulative repository of all assignments, projects, and required documentation for:
 EDES 301: Introduction to Practical Electrical Engineering (Fall 2025) @ Rice University 
 Taught By: Dr. Erik Welsh
+
+This is a cumulative repository of all assignments, projects, and required documentation
 
 Repo Content:
 Assignment 1: Circuit Analysis
