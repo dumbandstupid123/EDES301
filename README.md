@@ -4,10 +4,10 @@ Taught By: Dr. Erik Welsh
 This is a cumulative repository of all assignments, projects, and required documentation
 
 Repo Content:
-Assignment 1: Circuit Analysis
-Assignment 2: Pocket Beagle Introduction and Setup
-Assignment 3: Packages, Internet + Binary
-Assignment 4: Python for Embedded Systems 
+- Assignment 1: Circuit Analysis
+- Assignment 2: Pocket Beagle Introduction and Setup
+- Assignment 3: Packages, Internet + Binary
+- Assignment 4: Python for Embedded Systems 
 
 Project 1:
 - Initial Project Proposal
