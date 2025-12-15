@@ -20,3 +20,4 @@ Project 2:
 - Schematics 
 - Complete Printed Circuit Board Design (Designed for Non Invasive Glucose Signal Processing + Reading)
  
+<img width="400" height="308" alt="Screenshot 2025-12-15 at 1 06 08 PM" src="https://github.com/user-attachments/assets/173ca2b8-fdbc-40d4-8fbf-027233859738" />
