@@ -1,4 +1,5 @@
 **📡 Pocket Radar — Autonomous Sentry System (PocketBeagle)**
+**Hackster Page for Physical Build Guidelines:** https://www.hackster.io/sr185/pocket-radar-ultrasonic-object-detection-84759f
 
 A terrestrial scanning “sentry radar” powered by a PocketBeagle (Debian Linux).
 
