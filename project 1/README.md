@@ -47,6 +47,7 @@ TRIG → PocketBeagle P2_02
 ECHO → PocketBeagle P2_04 (through level shifting recommended)
 
 **🚀 Setup**
+
 Step 1 — Connect to Cloud9 IDE
 
 Plug the PocketBeagle into your computer via USB, then open:
