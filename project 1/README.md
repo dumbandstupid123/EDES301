@@ -1,3 +1,6 @@
+
+<img width="553" height="354" alt="Screenshot 2025-12-16 at 4 56 49 AM" src="https://github.com/user-attachments/assets/943455d6-2b64-43bb-83b8-0bf66b15d6bd" />
+
 **📡 Pocket Radar — Autonomous Sentry System (PocketBeagle)**
 
 **Hackster Page for Physical Build Guidelines:** https://www.hackster.io/sr185/pocket-radar-ultrasonic-object-detection-84759f
@@ -100,6 +103,3 @@ sudo fuser -k 8888/tcp
 
 **📝 License**
 Open-source — build your own sentry bot.
-
-
-<img width="553" height="354" alt="Screenshot 2025-12-16 at 4 56 49 AM" src="https://github.com/user-attachments/assets/943455d6-2b64-43bb-83b8-0bf66b15d6bd" />
