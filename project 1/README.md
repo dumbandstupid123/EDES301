@@ -2,6 +2,9 @@
 
 **Hackster Page for Physical Build Guidelines:** https://www.hackster.io/sr185/pocket-radar-ultrasonic-object-detection-84759f
 
+<img width="553" height="354" alt="Screenshot 2025-12-16 at 4 56 49 AM" src="https://github.com/user-attachments/assets/943455d6-2b64-43bb-83b8-0bf66b15d6bd" />
+
+
 A terrestrial scanning “sentry radar” powered by a PocketBeagle (Debian Linux).
 
 Scans a 180° sector using an HC-SR04 ultrasonic sensor mounted on an SG90 servo, then renders detections on a self-hosted, military-style web dashboard — no cloud required.
