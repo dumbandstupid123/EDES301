@@ -1,4 +1,4 @@
-📡 Pocket Radar — Autonomous Sentry System (PocketBeagle)
+**📡 Pocket Radar — Autonomous Sentry System (PocketBeagle)**
 
 A terrestrial scanning “sentry radar” powered by a PocketBeagle (Debian Linux).
 
@@ -11,8 +11,8 @@ Auto-Scan mode: continuous sweep left ↔ right
 Manual “Sniper” mode: aim precisely via a web slider
 Intruder alert: RED ALERT + optional lock when targets breach threshold (default < 30 cm)
 Driverless GPIO: raw Linux SysFS interaction (bypasses flaky GPIO libraries)
-
-Hardware Required
+**
+Hardware Required**
 PocketBeagle (Debian Linux image)
 SG90 Micro Servo (pan mechanism)
 HC-SR04 Ultrasonic sensor
