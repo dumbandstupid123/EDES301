@@ -1,121 +1,104 @@
-📡 Pocket Radar: Autonomous Sentry System
+📡 Pocket Radar — Autonomous Sentry System (PocketBeagle)
 
-Pocket Radar is a terrestrial scanning system powered by the PocketBeagle. It uses an ultrasonic sensor mounted on a servo motor to scan a 180-degree sector, detecting objects in real-time and visualizing them on a self-hosted "Military Style" web dashboard.
+A terrestrial scanning “sentry radar” powered by a PocketBeagle (Debian Linux).
 
-🎯 Features
+Scans a 180° sector using an HC-SR04 ultrasonic sensor mounted on an SG90 servo, then renders detections on a self-hosted, military-style web dashboard — no cloud required.
 
-Real-Time Visualization: HTML5 Canvas dashboard served directly from the chip (no cloud needed).
+Features
 
-Auto-Scan Mode: Sweeps back and forth continuously.
+Real-time visualization: HTML5 Canvas dashboard served from the PocketBeagle
+Auto-Scan mode: continuous sweep left ↔ right
+Manual “Sniper” mode: aim precisely via a web slider
+Intruder alert: RED ALERT + optional lock when targets breach threshold (default < 30 cm)
+Driverless GPIO: raw Linux SysFS interaction (bypasses flaky GPIO libraries)
 
-Manual Sniper Mode: Control the turret angle precisely via a web slider.
+Hardware Required
+PocketBeagle (Debian Linux image)
+SG90 Micro Servo (pan mechanism)
+HC-SR04 Ultrasonic sensor
+Breadboard (power rails)
+Jumper wires (male-to-male)
+Micro-USB cable (power + data)
+Voltage Warning (Important)
 
-Intruder Alert: Visual RED ALERT and logic locking when targets breach the safety threshold (< 30cm).
+PocketBeagle GPIO uses 3.3V logic. HC-SR04 is usually powered by 5V, and its ECHO output may be 5V.
 
-Driverless Architecture: Uses raw Linux SysFS interaction to bypass broken GPIO libraries.
+Do not drive a 3.3V GPIO input directly with a 5V ECHO pin.
+Use a voltage divider or level shifter on ECHO → PocketBeagle.
 
-🛠️ Hardware Requirements
+Example divider (common):
 
-PocketBeagle (x1): The brain (Debian Linux image).
+1 kΩ from ECHO → GPIO
+2 kΩ from GPIO → GND
 
-SG90 Micro Servo (x1): Pan mechanism.
+🔌 Wiring
+1) Power rails
 
-HC-SR04 Sensor (x1): Ultrasonic rangefinder.
+PocketBeagle P1_05 (VBUS / 5V) → Breadboard + rail (red)
+PocketBeagle P1_16 (GND) → Breadboard - rail (blue)
 
-Breadboard (x1): For power distribution.
+2) Servo (SG90)
+Servo Red → + rail (5V)
+Servo Brown → - rail (GND)
+Servo Orange (signal) → PocketBeagle P1_36
 
-Jumper Wires (x10+): Male-to-Male connections.
+3) Ultrasonic (HC-SR04)
 
-Micro-USB Cable (x1): Power & Data connection to laptop.
+VCC → + rail (5V)
+GND → - rail (GND)
+TRIG → PocketBeagle P2_02
+ECHO → PocketBeagle P2_04 (through level shifting recommended)
 
-🔌 Wiring Guide (Crucial)
+🚀 Setup
+Step 1 — Connect to Cloud9 IDE
 
-⚠️ WARNING: The PocketBeagle logic is 3.3V, but the sensor requires 5V. You MUST use the specific pins listed below to avoid damaging your board or having the sensor fail to trigger.
-
-1. Power Distribution (The Rail)
-
-PocketBeagle P1_05 (VBUS): Connect to Breadboard Red (+) Rail.
-
-PocketBeagle P1_16 (GND): Connect to Breadboard Blue (-) Rail.
-
-2. Servo Motor (SG90)
-
-Red Wire: Connect to Red (+) Rail (5V).
-
-Brown Wire: Connect to Blue (-) Rail (GND).
-
-Orange Wire (Signal): Connect to PocketBeagle P1_36.
-
-3. Ultrasonic Sensor (HC-SR04)
-
-VCC: Connect to Red (+) Rail (5V).
-
-GND: Connect to Blue (-) Rail (GND).
-
-Trig: Connect to PocketBeagle P2_02.
-
-Echo: Connect to PocketBeagle P2_04.
-
-🚀 Installation & Setup
-
-Step 1: Connect to the Board
-
-Plug the PocketBeagle into your computer via USB. Open Chrome and navigate to the Cloud9 IDE:
+Plug the PocketBeagle into your computer via USB, then open:
 
 Windows: http://192.168.7.2:3000
-
 Mac/Linux: http://192.168.6.2:3000
 
-Step 2: Create the Script
+Step 2 — Create the script
 
-In the Cloud9 file tree, right-click and create a new file named pocket_radar.py. Paste the code from this repository into that file.
+In Cloud9, create:
 
-Step 3: Run the System
+sonar.py
+Paste the code from this repo into that file.
 
-Open the terminal at the bottom of the Cloud9 window and run:
-
+Step 3 — Run
 sudo python3 pocket_radar.py
 
+sudo is required for hardware pin access.
 
-Note: sudo is required to access the hardware pins.
+🖥️ Dashboard
 
-🖥️ Using the Dashboard
-
-Once the script is running, open a new browser tab and go to:
+Open the dashboard in a browser:
 
 Windows: http://192.168.7.2:8888
-
 Mac/Linux: http://192.168.6.2:8888
 
 Controls
 
-AUTO SCAN: The default mode. The radar sweeps left and right automatically.
-
-MANUAL AIM: Stops the sweep. Drag the Manual Aiming slider to point the sensor at a specific angle.
-
-SCAN SPEED: Adjust how fast the servo moves (Lower = Faster).
-
-ALARM THRESHOLD: Set the distance (cm) for the "Red Alert" trigger.
+AUTO SCAN: default — sweeps left and right continuously
+MANUAL AIM: stops sweep; aim with slider
+SCAN SPEED: lower value = faster stepping
+ALARM THRESHOLD (cm): triggers RED ALERT
 
 🔧 Troubleshooting
 
-Problem: "Timeout" or Distance is always 0
+Distance always 0 / “Timeout”
+Check power: sensor VCC must be on 5V rail from P1_05
 
-Fix: Check your power! Is the sensor VCC connected to the Red Rail? Is the Red Rail connected to P1_05? (P1_14 is only 3.3V and will not work).
+Confirm TRIG (P2_02) and ECHO (P2_04) aren’t swapped
+Make sure ECHO is not overdriving GPIO (use divider/level shifter)
 
-Fix: Check wires. Are Trig (P2_02) and Echo (P2_04) swapped?
+Servo buzzes but doesn’t move
+Servo is underpowered — must be on 5V rail (P1_05) with shared ground
 
-Problem: Servo buzzes but doesn't move
+Don’t power a servo from a 3.3V GPIO pin
+OSError: [Errno 98] Address already in use
 
-Fix: The servo is underpowered. Ensure it is sharing the P1_05 (5V) rail, not plugged into a 3.3V GPIO pin.
-
-Problem: OSError: [Errno 98] Address already in use
-
-Fix: The previous instance of the code is still running in the background. Run this command to kill it:
-
+Old instance is still running:
 sudo fuser -k 8888/tcp
 
-
 📝 License
-
-This project is open-source. Feel free to modify and adapt for your own sentry bot needs!
+Open-source — build your own sentry bot.
