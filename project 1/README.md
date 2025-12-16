@@ -28,7 +28,6 @@ PocketBeagle GPIO uses 3.3V logic. HC-SR04 is usually powered by 5V, and its ECH
 Do not drive a 3.3V GPIO input directly with a 5V ECHO pin.
 Use a voltage divider or level shifter on ECHO → PocketBeagle.
 
-=
 **🔌 Wiring**
 1) Power rails
 
