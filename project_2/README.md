@@ -1,5 +1,5 @@
-**EDES301 Project 2: Digital Etch-A-Sketch PCB
-**
+## EDES301 Project 2: Digital Etch-A-Sketch PCB
+
 ## Project Overview
 This project involves the design and layout of a custom Printed Circuit Board (PCB) for a digital Etch-A-Sketch system. The board interfaces a microcontroller development board with an SPI LCD screen, analog inputs for drawing control, and digital inputs for system commands.
 
