@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd /var/lib/cloud9/led_strip/
-
-./opc-server --config config.json

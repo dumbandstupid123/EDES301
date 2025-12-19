@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd /var/lib/cloud9/led_strip
-
-./configure_pins.sh
-
-PYTHONPATH=/var/lib/cloud9/led_strip/ python3 led_strip_test.py
