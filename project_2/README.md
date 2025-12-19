@@ -15,22 +15,6 @@ The PCB connects the following components to the main microcontroller:
 * **Storage:** MicroSD card slot for saving drawings or loading assets.
 * **Host:** Headers for NUCLEO development board connection.
 
-## Repository Structure
-This repository is organized into the following directories for manufacturing and documentation:
-
-* **`project_02/`**: Root directory containing the project documentation.
-    * `Schematic.pdf`: Printable PDF version of the circuit schematic.
-    * `Bill_of_Materials.csv`: Component list including Manufacturer Part Numbers (MPN).
-    * **`EAGLE/`**: Source design files.
-        * `.sch`: System Schematic.
-        * `.brd`: Board Layout.
-        * `.lbr`: Project-specific component library.
-    * **`MFG/`**: Manufacturing files.
-        * Contains Gerber files (CAM output) generated for fabrication.
-    * **`docs/`**: Visual documentation.
-        * Mechanical Block Diagram.
-        * Top and Bottom layer rendering screenshots.
-
 ## Manufacturing
 The board is designed with standard 2-layer constraints:
 * **Trace Width:** 10 mil (Signal) / 15 mil (Power).
